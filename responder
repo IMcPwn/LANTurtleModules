@@ -52,6 +52,13 @@ function start {
       check_internet
       opkg update > /dev/null && opkg install python-sqlite3
     fi
+
+    if [[ ! $(opkg list-installed | grep python-openssl) ]];
+    then
+      echo "Dependency python-openssl not installed. Installing..."
+      check_internet
+      opkg update > /dev/null && opkg install python-openssl
+    fi
     
     if [[ ! -d /etc/turtle/Responder || ! -s /etc/turtle/Responder/Responder.py || ! -s /etc/turtle/Responder/Responder.conf ]];
     then
