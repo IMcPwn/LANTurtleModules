@@ -208,7 +208,7 @@ function status {
 }
 
 function check_internet {
-    ping -q -w 5 -c 1 lanturtle.com &> /dev/null && {
+    ping -q -w 5 -c 1 8.8.8.8 &> /dev/null && {
         :
     } || {
         echo -e "\nThe LAN Turtle is currently offline. The previous\noperation requires an internet connection."
